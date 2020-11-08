@@ -1,9 +1,10 @@
 //Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 // Require axios and cheerio. This makes the scraping possible
-var axios = require("axios");
-var cheerio = require("cheerio");
+// var axios = require("axios");
+// var cheerio = require("cheerio");
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,7 +17,8 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  userUnifiedTopology: true
 });
 
 // routes
